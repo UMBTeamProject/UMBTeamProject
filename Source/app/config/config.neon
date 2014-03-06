@@ -23,6 +23,6 @@ nette:
 
 
 services:
-	- App\UserManager
+	authenticator: MyAuthenticator
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
