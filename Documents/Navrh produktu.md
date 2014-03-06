@@ -135,6 +135,7 @@ Zoznam komentárov pod úlohou.
 - id
 - name
 - description
+- project_id (FK project.id)
 - owner (FK user.id)
 - worker (FK user.id)
 - date
