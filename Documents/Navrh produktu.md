@@ -109,7 +109,8 @@ Zoznam komentárov pod úlohou.
 ##User
 
 - id
-- mail
+- email
+- username
 - password
 - name
 - about_me
