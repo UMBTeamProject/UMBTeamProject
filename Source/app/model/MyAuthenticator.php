@@ -12,9 +12,9 @@ class MyAuthenticator extends Nette\Object implements NS\IAuthenticator
 
     function authenticate(array $credentials)
     {
-        list($username, $password) = $credentials;
+        list($email, $password) = $credentials;
         $row = $this->database->table('users')
-            ->where('username', $username)->fetch();
+            ->where('mail', $email)->fetch();
 
         if (!$row) {
             throw new NS\AuthenticationException('User not found.');
