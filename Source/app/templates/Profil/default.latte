@@ -1,0 +1,34 @@
+{block content}
+
+{if $user->isLoggedIn()}
+    <a n:href="signOut!"> logout </a>
+<br /><br />
+
+<table>
+    <tr>
+        <td width="150">ID:</td><td>{$id}</td>
+    </tr>
+    <tr>
+        <td width="150">Meno:</td><td>{$name}</td>
+    </tr>
+    <tr>
+        <td>E-mail:</td><td>{$mail}</td>
+    </tr>
+    <tr>
+        <td>Niečo o mne:</td><td>{$about_me}</td>
+    </tr>
+    <tr>
+        <td>Odporúčania:</td><td>{$references}</td>
+    </tr>
+    <tr>
+        <td>Zručnosti:</td><td>{$skills}</td>
+    </tr>
+    <tr>
+        <td>Dátum vytvorenia:</td><td>{$date}</td>
+    </tr>
+</table>
+{else}
+    
+{/if}
+
+{/block}

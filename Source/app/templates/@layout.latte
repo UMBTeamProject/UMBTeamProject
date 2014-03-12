@@ -25,53 +25,10 @@
 <body>
 	<script> document.documentElement.className+=' js' </script>
         
-        {block frontPage}
-        <table id="topTable">
-            <tr>
-                <td id="projectName">
-                    task manager
-                </td>
-                <td width="400"></td>
-                <td>
-                {if !$user->isLoggedIn()}
-                {form signInForm}
-                    <table>
-                        <tr>
-                            <td>{input username}</td><td>{input password}</td>
-                            <td>{input send}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">{input remember}</td>
-                        </tr>
-                    </table>
-                {/form}
-                {else}
-                    <a n:href="signOut!"> logout </a>&nbsp[{$name}] - [{$email}]
-                {/if}
-                </td>
-            </tr>
-        </table>
+        <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
                 
-        <table id="bottomTable">
-            <tr>
-                <td><img width="500" src="{$basePath}/images/obraz_na_stojane.jpg" /></td>
-                <td valign="top" style="padding: 10px 10px 10px 150px;">
-                    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-                    {if !$user->isLoggedIn()}
-                        {$registerForm}
-                    {else}
-                        <div style="border:3px solid orange; width: 150px; height: 150px;">
-                            tu pojde povedzme profilova fotka ... len tak 
-                        </div>
-                    {/if}
-                    <img src="{$basePath}/images/aaa.jpg" width="400" />
-                </td>
-            </tr>
-        </table>
-        {/block}
-        
         {include content}
-	
+            
         {block scripts}
 	<script src="{$basePath}/js/jquery.js"></script>
 	<script src="{$basePath}/js/netteForms.js"></script>
