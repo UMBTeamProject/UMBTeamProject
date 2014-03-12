@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/www/index.php</file>
+            <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/app/presenters/ProfilPresenter.php</file>
             <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/app/templates/@layout.latte</file>
-            <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/app/config/config.local.neon</file>
+            <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/app/templates/Profil/default.latte</file>
             <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/app/presenters/HomepagePresenter.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/www/css/StyleSheet.css</file>
+            <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/app/templates/Homepage/default.latte</file>
             <file>file:/C:/Program%20Files%20(x86)/EasyPHP-12.1/www/timovyProjekt/app/presenters/BasePresenter.php</file>
         </group>
     </open-files>
