@@ -47,8 +47,7 @@ html,
  * Header
  */
 .masthead-brand {
-  /*margin-top: 10px;
-  margin-bottom: 10px;  */
+  margin-left: -15px;
   
 }
 
@@ -85,7 +84,7 @@ html,
 
 @media (min-width: 768px) {
   .masthead-brand {
-    float: left;
+    
     
     
   }
@@ -97,8 +96,8 @@ html,
    }
   
   .masthead-nav {
-    float: right;
-    margin-right: 35px;
+    /*float: right; */
+   margin-left: 88px;
   }
 }
 
