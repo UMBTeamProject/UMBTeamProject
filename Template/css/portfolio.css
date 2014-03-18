@@ -140,13 +140,57 @@ i.service-icon {
   border: 3px solid #ffffff;
   border-radius: 50%;
   display: inline-block;
-  font-size: 56px;
+  font-size: 60px;
   width: 140px;
   height: 140px;
   line-height: 136px;
   vertical-align: middle; 
   text-align: center;
 }
+
+span.service-icon {
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 60px;
+  width: 140px;
+  height: 140px;
+  line-height: 136px;
+  vertical-align: middle; 
+  text-align: center;
+}
+i.service-icon_1 {
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 60px;
+  width: 140px;
+  height: 140px;
+  line-height: 120px;
+  vertical-align: middle; 
+  text-align: center;
+  margin-bottom: -19px;
+}
+i.service-icon1 {
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 32px; 
+  text-align: center;
+}
+i.service-icon2 {
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 48px;
+  text-align: center;
+}
+i.service-icon3 {
+  margin-top: -50px;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: middle;
+   
+}
+
 
 /* Callout */
 
