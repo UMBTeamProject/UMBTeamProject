@@ -62,13 +62,11 @@
             </div>
 
             <div class="col-sm-7">
-                
-                <p>Service two description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst.
-                Service two description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst.
+                {foreach $konkretny_projekt as $kp}
+                <p>
+                    {$kp->description}
                 </p>
-                
+                {/foreach}
             </div>
             
             <div class="col-sm-3">
