@@ -10,7 +10,10 @@ use Nette,
  * Base presenter for all application presenters.
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
-{	
+{
+        /** @var Nette\Database\Context @inject */
+        public $database;
+
         public function handleSignOut()
         {
 		$user = $this->getUser();
@@ -81,11 +84,4 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 			$form->addError($e->getMessage());
 		}
 	}
-        
-        public $database;
-
-        function __construct(Nette\Database\Context $database)
-        {
-            $this->database = $database;
-        }
 }
