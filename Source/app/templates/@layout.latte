@@ -36,21 +36,34 @@
         <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
            <div class="container"> 
     
-       <div class="col-md-3 col-xs-2">     
+       <div class="col-md-3 col-xs-4">     
           <div class="masthead-brand">
             <a href="{$basePath}"><h1>
             <img class="img-circle" src="http://placehold.it/100x100" alt="logo" >  Projekt</h1>
             </a>
           </div>
        </div>
-      {include menu_top}
+      <div class="col-md-2"></div>
+       <div class="col-md-7 col-xs-12">
+          <ul class="nav masthead-nav">
+            <li><a n:href="Projekt:"><span class="glyphicon glyphicon-home"></span> Projekty</a></li>
+	          {if !$user->isLoggedIn()}                              
+		          <li><a n:href="Registracia:">Registrácia</a></li>
+	              <li><a href="#login">Login</a></li>
+	          {else}                
+	            <li><a n:href="Ulohy:"><span class="glyphicon glyphicon-list"></span> Úlohy</a></li>
+	            <li><a n:href="Profil:"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+	            <li><a n:href="signOut!"><span class="glyphicon glyphicon-remove"></span> Odlhásenie</a></li>
+	          {/if}
+          </ul>                       
+         </div>
     </div> 
         {include content}
     <!-- Footer -->
     <footer>
         <div class="container"> <!-- container -->
             <div class="row"> <!-- row -->
-                <div class="col-md-4 col-xs-4" n:if="!$user->isLoggedIn()">
+                <div class="col-md-4 col-xs-6" n:if="!$user->isLoggedIn()">
                 <div class="headline"><h2>About Us</h2></div>
                   <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero libero, egestas ut facilisis vel, 
@@ -58,7 +71,7 @@
                   Nullam ultrices eget massa in viverra. Morbi in velit quam. Donec sagittis dignissim placerat.
                   </p>
                 </div>
-                <div class="col-md-4 col-xs-4" n:if="!$user->isLoggedIn()">
+                <div class="col-md-4 col-xs-6" n:if="!$user->isLoggedIn()">
                     <div class="headline"><h2>Feed</h2></div>
                     <ul class="list-inline">
                         <li><a href="#"><i class="fa fa-facebook fa-3x"></i></a>
@@ -72,7 +85,7 @@
                     </ul>
                 </div>
                 
-                <div class="col-md-4 col-xs-4" n:if="!$user->isLoggedIn()">
+                <div class="col-md-4 col-xs-6" n:if="!$user->isLoggedIn()">
                     <div id="login" class="headline"><h2>login in</h2></div>
                         <h2 class="form-signin-heading">Please log in</h2>
                               {form signInForm}
@@ -83,7 +96,7 @@
                               {/form}
                 </div>
               
-              <div class="col-md-12 col-xs-4">  
+              <div class="col-md-12 col-xs-12">  
                 <div class="top-scroll">
                       <a href="#top">
                         <span class="glyphicon glyphicon-chevron-up">
