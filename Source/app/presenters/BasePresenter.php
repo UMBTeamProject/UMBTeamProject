@@ -82,22 +82,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		}
 	}
         
-        public function createComponentLogoutForm()
-        {
-            $form2 = new Form;
-	    $form2->addSubmit('send', 'Logout')
-                 ->getControlPrototype()->setClass("btn btn-lg btn-primary btn-block");
-            $form2->onSuccess[] = $this->logoutFormSucceeded;
-	    return $form2;
-        }
-        
-        public function logoutFormSucceeded($form)
-        {               
-                $user = $this->getUser();
-                $user->logout();
-                $this->redirect('Homepage:default');
-        }
-        
         public $database;
 
         function __construct(Nette\Database\Context $database)
