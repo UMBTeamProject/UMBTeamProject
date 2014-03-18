@@ -75,7 +75,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 		try {
 			$this->getUser()->login($values->email, $values->password);
-                        $this->redirect('Homepage:default');
+                        $this->redirect('Projekt:');
 
 		} catch (Nette\Security\AuthenticationException $e) {
 			$form->addError($e->getMessage());
