@@ -12,12 +12,20 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-template-->
 
-	<title>{block title|striptags|upper}Task Manager{/block}</title>
+	<title>{block title|striptags|upper}projekt{/block}</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 	<link rel="stylesheet" href="{$basePath}/css/StyleSheet.css">
+        
+        <link href="{$basePath}/css/template/bootstrap.css" rel="stylesheet">
+        <link href="{$basePath}/css/template/carousel.css" rel="stylesheet">
+        <link href="{$basePath}/css/template/cover.css" rel="stylesheet">
+        <link href="{$basePath}/css/template/portfolio.css" rel="stylesheet">
+        <link href="{$basePath}/css/template/font-awesome.min.css" rel="stylesheet">
+        
 	<link rel="shortcut icon" href="{$basePath}/logo.ico">
 	{block head}{/block}
 </head>
@@ -26,11 +34,80 @@
 	<script> document.documentElement.className+=' js' </script>
         
         <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-                
+           <div class="container"> 
+    
+       <div class="col-md-3 col-xs-2">     
+          <div class="masthead-brand">
+            <a href="{$basePath}"><h1>
+            <img class="img-circle" src="http://placehold.it/100x100" alt="logo" >  Projekt</h1>
+            </a>
+          </div>
+       </div>
+      {include menu_top}
+    </div> 
         {include content}
-            
+    <!-- Footer -->
+    <footer>
+        <div class="container"> <!-- container -->
+            <div class="row"> <!-- row -->
+                <div class="col-md-4 col-xs-4">
+                <div class="headline"><h2>About Us</h2></div>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero libero, egestas ut facilisis vel, 
+                  sodales sit amet odio. Morbi vel vehicula massa. Aenean viverra feugiat metus, ac convallis leo pharetra non. 
+                  Nullam ultrices eget massa in viverra. Morbi in velit quam. Donec sagittis dignissim placerat.
+                  </p>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    <div class="headline"><h2>Feed</h2></div>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="fa fa-facebook fa-3x"></a></i>
+                        </li>
+                        <li><i class="fa fa-twitter fa-3x"></i>
+                        </li>
+                        <li><i class="fa fa-dribbble fa-3x"></i>
+                        </li>
+                        <li><i class="fa fa-message fa-3x"></i>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 col-xs-4">
+                    <div id="login" class="headline"><h2>login in</h2></div>
+                        <h2 class="form-signin-heading">Please log in</h2>
+                          {if !$user->isLoggedIn()}
+                              {form signInForm}
+                                  {input email}
+                                  {input password}
+                                  {input remember}  
+                                  {input send}
+                              {/form}
+                          {else}
+                              {form logoutForm}
+                                  {input send}
+                              {/form}
+                          {/if}
+                </div>
+              
+              <div class="col-md-12 col-xs-4">  
+                <div class="top-scroll">
+                      <a href="#top">
+                        <span class="glyphicon glyphicon-chevron-up">
+                          <strong>Top</strong>
+                        </span>
+                      </a>
+                  <br />                        
+                </div>
+                    
+                  <hr>
+                    <p>Copyright &copy; Company 2014</p>      
+              </div>      
+            </div> <!-- row -->
+        </div>  <!-- container -->
+    </footer>
+    <!-- /Footer -->
         {block scripts}
-	<script src="{$basePath}/js/jquery.js"></script>
+	<script src="{$basePath}/js//jquery.js"></script>
 	<script src="{$basePath}/js/netteForms.js"></script>
 	<script src="{$basePath}/js/main.js"></script>
 	{/block}

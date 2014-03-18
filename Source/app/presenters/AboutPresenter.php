@@ -8,14 +8,13 @@ use Nette\Application\UI\Form;
 use Nette,
 	App\Model;
 /**
- * Profil presenter.
+ * About presenter.
  */
 
-class ProfilPresenter extends BasePresenter
+class AboutPresenter extends BasePresenter
 {
 	public function renderDefault()
 	{
-                $user = $this->getUser();
-                $this->template->user = $user;
+            
 	}
 }
