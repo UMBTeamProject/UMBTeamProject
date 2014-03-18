@@ -46,9 +46,9 @@
                 <div class="panel-body">
                 <p ><span class="glyphicon glyphicon-bookmark"></span> {$admin} </p> 
                 <div class="divider"> </div>
-                {foreach $members as $member}
-                  <p class="proj-right"><span class="glyphicon glyphicon-plus"></span>
-                            {$member->user_id}
+                {foreach $kp->related("project_member") as $member}
+                  <p><span class="glyphicon glyphicon-plus"></span>
+                            {$member->user->name}
                   </p>
                 {/foreach}         
                 </div>
