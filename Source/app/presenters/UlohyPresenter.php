@@ -8,14 +8,12 @@ use Nette\Application\UI\Form;
 use Nette,
 	App\Model;
 /**
- * Profil presenter.
+ * Ulohy presenter.
  */
 
-class ProfilPresenter extends BasePresenter
+class UlohyPresenter extends BasePresenter
 {
 	public function renderDefault()
 	{
-                $user = $this->getUser();
-                $this->template->user = $user;
 	}
 }

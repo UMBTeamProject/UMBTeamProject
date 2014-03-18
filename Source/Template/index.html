@@ -1,25 +1,55 @@
-{block menu_top}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projekt</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/portfolio.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+   <div class="container"> 
+    
+       <div class="col-md-3 col-xs-2">     
+          <div class="masthead-brand">
+            <a href="./"><h1>
+            <img class="img-circle" src="http://placehold.it/100x100" alt="logo" >  Projekt</h1>
+            </a>
+          </div>
+       </div>
        <div class="col-md-2"></div>
        <div class="col-md-7 col-xs-10">
           <ul class="nav masthead-nav">
-                <li><a href="{$basePath}/#top">Home</a>
+                <li><a href="#top">Home</a>
             </li>
-            <li><a href="{$basePath}/#about">About</a>
+            <li><a href="#about">About</a>
             </li>
-            <li><a href="{$basePath}/#services">Services</a>
+            <li><a href="#services">Services</a>
             </li>
-            <li><a href="{$basePath}/#portfolio">Portfolio</a>
+            <li><a href="#portfolio">Portfolio</a>
             </li>
-            <li><a href="{$basePath}/#contact">Contact</a>
+            <li><a href="#contact">Contact</a>
             </li>
              <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Karty GitHub <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{$basePath}/about">Credits</a>
+                            <li><a href="about.html">Credits #9</a>
                             </li>
-                            <li><a href="{$basePath}/registracia">Registrácia</a>
+                            <li><a href="reg.html">Registracia #12</a>
                             </li>
-                            <li><a href="{$basePath}/login">Login</a>
+                            <li><a href="index_login.html">Index_Login</a>
                             </li>
                             
                         </ul>
@@ -28,18 +58,15 @@
                       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Sign In <span class="caret"></span>
                       </button>
                         <ul class="dropdown-menu" role="menu">
-                          {if !$user->isLoggedIn()}                              
-                              <li><a href="#login">Login</a></li>
-                          {else}                
-                              <li><a href="#login">Logout</a></li>
-                          {/if}
-                              <li><a href="{$basePath}/registracia">Registrácia</a></li>
+                          <li><a href="#login">Login</a></li>
+                          <li><a href="reg.html">Register</a></li>
                         </ul>
                   </div>
           </ul>                       
-         </div>
-{/block}
-{block content}  
+         </div>   
+      
+    </div>
+      
     <!-- Full Page Image Header Area -->
     <div id="top" class="header">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -143,9 +170,66 @@
     </div>
     <!-- /Services -->
 
-        <!-- JavaScript -->
-        <script src="{$basePath}/js/template/jquery-1.10.2.js"></script>
-        <script src="{$basePath}/js/template/bootstrap.js"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="container"> <!-- container -->
+            <div class="row"> <!-- row -->
+                <div class="col-md-4 col-xs-4">
+                <div class="headline"><h2>About Us</h2></div>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero libero, egestas ut facilisis vel, 
+                  sodales sit amet odio. Morbi vel vehicula massa. Aenean viverra feugiat metus, ac convallis leo pharetra non. 
+                  Nullam ultrices eget massa in viverra. Morbi in velit quam. Donec sagittis dignissim placerat.
+                  </p>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    <div class="headline"><h2>Feed</h2></div>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="fa fa-facebook fa-3x"></a></i>
+                        </li>
+                        <li><i class="fa fa-twitter fa-3x"></i>
+                        </li>
+                        <li><i class="fa fa-dribbble fa-3x"></i>
+                        </li>
+                        <li><i class="fa fa-message fa-3x"></i>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 col-xs-4">
+                    <div id="login" class="headline"><h2>login in</h2></div>
+                    <form class="form-signin" role="form">
+                        <h2 class="form-signin-heading">Please log in</h2>
+                          <input type="email" class="form-control" placeholder="Email address" required="" >
+                          <input type="password" class="form-control" placeholder="Password" required="">
+                          <label class="checkbox">
+                           <input type="checkbox" value="remember-me"> Remember me
+                          </label>
+                          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    </form>
+                </div>
+              
+              <div class="col-md-12 col-xs-4">  
+                <div class="top-scroll">
+                      <a href="#top">
+                        <span class="glyphicon glyphicon-chevron-up">
+                          <strong>Top</strong>
+                        </span>
+                      </a>
+                  <br />                        
+                </div>
+                    
+                  <hr>
+                    <p>Copyright &copy; Company 2013</p>      
+              </div>      
+            </div> <!-- row -->
+        </div>  <!-- container -->
+    </footer>
+    <!-- /Footer -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
 
     <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
     <script>
@@ -177,4 +261,7 @@
         });
     });
     </script>
-{/block}
+
+</body>
+
+</html>
