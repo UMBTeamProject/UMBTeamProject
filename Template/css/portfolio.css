@@ -169,6 +169,7 @@ i.service-icon_1 {
   line-height: 120px;
   vertical-align: middle; 
   text-align: center;
+  margin-bottom: -19px;
 }
 i.service-icon1 {
   border-radius: 50%;
@@ -183,8 +184,7 @@ i.service-icon2 {
   text-align: center;
 }
 i.service-icon3 {
-  margin-top: -95px;
-
+  margin-top: -50px;
   font-size: 30px;
   text-align: center;
   vertical-align: middle;
