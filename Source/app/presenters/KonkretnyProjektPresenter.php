@@ -13,25 +13,18 @@ use Nette,
 
 class KonkretnyProjektPresenter extends BasePresenter
 {
-	public function renderDefault()
+	public function renderDefault($id)
 	{
             $user = $this->getUser();
             $this->template->user = $user;
             
-            $projekt_S = $this->getSession('projekt_S');
-            $projekt_S->setExpiration(0);
+            $this->template->konkretny_projekt = $this->database->table("project")->where("id",$id);   
             
-            if(!$projekt_S->pr_id){
-                $this->redirect('Projekt:default');
-            }
-            
-            $this->template->konkretny_projekt = $this->database->table("project")->where("id",$projekt_S->pr_id);   
-            
-            $owner = $this->database->table("project")->where("id",$projekt_S->pr_id)->fetch()->owner;
+            $owner = $this->database->table("project")->where("id",$id)->fetch()->owner;
             $admin = $this->database->table("users")->where("id",$owner)->fetch()->name;
             $this->template->admin = $admin;
             
-            $this->template->members = $this->database->table("project_member")->where("project_id",$projekt_S->pr_id);
+            $this->template->members = $this->database->table("project_member")->where("project_id",$id);
             $this->template->users = $this->database->table("users");
 	}
 }
