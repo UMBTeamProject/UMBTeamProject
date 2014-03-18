@@ -10,7 +10,10 @@ use Nette,
  * Base presenter for all application presenters.
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
-{	
+{
+        /** @var Nette\Database\Context @inject */
+        public $database;
+
         public function handleSignOut()
         {
 		$user = $this->getUser();
@@ -75,33 +78,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 		try {
 			$this->getUser()->login($values->email, $values->password);
-                        $this->redirect('Homepage:default');
+                        $this->redirect('Projekt:');
 
 		} catch (Nette\Security\AuthenticationException $e) {
 			$form->addError($e->getMessage());
 		}
 	}
-        
-        public function createComponentLogoutForm()
-        {
-            $form2 = new Form;
-	    $form2->addSubmit('send', 'Logout')
-                 ->getControlPrototype()->setClass("btn btn-lg btn-primary btn-block");
-            $form2->onSuccess[] = $this->logoutFormSucceeded;
-	    return $form2;
-        }
-        
-        public function logoutFormSucceeded($form)
-        {               
-                $user = $this->getUser();
-                $user->logout();
-                $this->redirect('Homepage:default');
-        }
-        
-        public $database;
-
-        function __construct(Nette\Database\Context $database)
-        {
-            $this->database = $database;
-        }
 }

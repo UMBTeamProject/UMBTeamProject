@@ -1,34 +1,3 @@
-{block menu_top}
-<div class="container"> 
-     
-        <div class="col-md-2"></div>
-       <div class="col-md-7 col-xs-10">
-        <ul class="nav masthead-nav">
-            <li><a href="{$basePath}/projekt"><span class="glyphicon glyphicon-home"></span> Projekty</a>
-            </li>
-            <li><a href="{$basePath}/ulohy"><span class="glyphicon glyphicon-list"></span> Úlohy</a>
-            </li>
-            <li><a href="{$basePath}/profil"><span class="glyphicon glyphicon-user"></span> Profil</a>
-            </li>
-            <li><a n:href="signOut!"><span class="glyphicon glyphicon-remove"></span> Odlhásenie </a>
-            </li>
-          
-             <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Karty GitHub <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{$basePath}/about">Credits</a>
-                            </li>
-                            <li><a href="{$basePath}/registracia">Registrácia</a>
-                            </li>
-                            <li><a href="{$basePath}/login">Login</a>
-                            </li>                            
-                        </ul>
-                    </li>
-                 
-          </ul> 
-          </div>                      
-      </div> 
-{/block}
 {block content}
 <div class="container"> <!-- container -->
          <div class="row"> <!-- row -->
@@ -38,7 +7,7 @@
                    
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
+                    <li><a n:href="Homepage:">Home</a>
                     </li>
                     <li class="active">Projekty</li>
                 </ol>
@@ -51,73 +20,46 @@
              
               <div class="col-md-12">
                 <ul id="myTab" class="nav nav-tabs">
-                    <li class="active"><a href="#moje" data-toggle="tab">Moje</a>
+                    <li class="active" n:if="$user->isLoggedIn()"><a href="#moje" data-toggle="tab">Moje</a>
                     </li>
                     <li><a href="#all" data-toggle="tab">Všetky</a>
                     </li>
-                    {if $user->isLoggedIn()}
-                    <li><a href="#novy" data-toggle="tab">Nový</a>
+                    <li n:if="$user->isLoggedIn()"><a href="#novy" data-toggle="tab">Nový</a>
                     </li>
-                    {/if}
                     
                 </ul>
                 <div  class="tab-content">
-                    <div class="tab-pane active" id="moje">  
-                       {foreach $moje_projekty as $my_pr}
+                    <div class="tab-pane{if $user->isLoggedIn()} active{/if}" id="moje" n:if="$user->isLoggedIn()">  
+                       {foreach $moje_projekty as $project}
                        <div class="thumbnail">
                           <div class="caption">
-                            <p class="proj">{$my_pr->name}&nbsp;&nbsp;&nbsp;<small align=right>{$my_pr->date}</small></p>
-                              <p>{$my_pr->description}</p>
+                            <p class="proj">{$project->name}&nbsp;&nbsp;&nbsp;<small align=right>{$project->date}</small></p>
+                              <p>{$project->description}</p>
                               {if $user->isLoggedIn()}
-                                    {if $count>0}
-                                        {if $is_member == 1}
-                                        {foreach $project_member->where("user_id",$user->id) as $pr_m}
-                                            {if $pr_m->project_id == $my_pr->id}
-                                                 <a n:href="KProjekt! $my_pr->id" class="btn btn-primary" role="button">You Are In!</a>
-                                            {else}
-                                                 <a n:href="GetIn! $my_pr->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
-                                            {/if}
-                                        {/foreach}
-                                        {else}
-                                                 <a n:href="GetIn! $my_pr->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
-                                        {/if}
-                                    {else}
-                                                 <a n:href="GetIn! $my_pr->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
+                                    {if $project->related('project_member')->where("user_id", $user->id)->count('*') AND $project->owner===$user->id} 
+                                             <a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
                                     {/if}
                               {/if} 
                           </div>
                       </div>
                       {/foreach}
                     </div>
-                    <div class="tab-pane" id="all">
-                       {foreach $vsetky_projekty as $all_pr}
+                    <div class="tab-pane{if !$user->isLoggedIn()} active{/if}" id="all">
+                       {foreach $vsetky_projekty as $project}
                        <div class="thumbnail">
                           <div class="caption">
-                            <p class="proj">{$all_pr->name}&nbsp;&nbsp;&nbsp;<small align=right>{$all_pr->date}</small></p>
-                              <p>{$all_pr->description}</p>
+                            <p class="proj">{$project->name}&nbsp;&nbsp;&nbsp;<small align=right>{$project->date}</small></p>
+                              <p>{$project->description}</p>
                               {if $user->isLoggedIn()}
-                                    {if $count>0}
-                                        {if $is_member == 1}
-                                        {foreach $project_member->where("user_id",$user->id) as $pr_m}
-                                            {if $pr_m->project_id == $all_pr->id}
-                                                 <a n:href="KProjekt! $all_pr->id" class="btn btn-primary" role="button">You Are In!</a>
-                                            {else}
-                                                 <a n:href="GetIn! $all_pr->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
-                                            {/if}
-                                        {/foreach}
-                                        {else}
-                                                 <a n:href="GetIn! $all_pr->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
-                                        {/if}
-                                    {else}
-                                                 <a n:href="GetIn! $all_pr->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
+                                    {if $project->related('project_member')->where("user_id", $user->id)->where("project_id", $project->id)->count('*')==0 AND $project->owner!=$user->id} 
+                                             <a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
                                     {/if}
                               {/if} 
                           </div>
                       </div>
                       {/foreach}
                     </div>
-                    {if $user->isLoggedIn()}
-                    <div class="tab-pane" id="novy">
+                    <div class="tab-pane" id="novy" n:if="$user->isLoggedIn()">
                            <div class="post-comment">
             	                 <h3>Vytvorenie projektu</h3>
                                 {form newProjectForm}
@@ -139,7 +81,6 @@
                                 {/form}
                           </div>
                     </div>
-                    {/if}
                 </div>
             </div>
               
