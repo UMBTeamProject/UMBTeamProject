@@ -49,22 +49,9 @@ class ProjektPresenter extends BasePresenter
     
 	public function renderDefault()
 	{
-            $user = $this->getUser();
-            $project_member = $this->database->table("project_member");
-            $count = $this->database->table("project_member")->count("id");
-            $this->template->count = $count;
-            $this->template->project_member = $project_member;
-            $is_member = 0;
-            foreach($project_member as $asd){
-                if($asd->user_id == $user->id){
-                    $is_member = 1;
-                }
-            }
-            $this->template->is_member = $is_member;
-            
-            $moje_projekty = $this->database->table("project")->where("owner",$user->id);
+            $moje_projekty = $this->database->table("project")->where("owner",$this->user->id);
             $this->template->moje_projekty = $moje_projekty;
-            
+
             $vsetky_projekty = $this->database->table("project");
             $this->template->vsetky_projekty = $vsetky_projekty;
 	}

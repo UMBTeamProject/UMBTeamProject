@@ -20,16 +20,18 @@
 </head>
 
 <body>
+   <div class="container"> 
     
-    <div class="masthead clearfix">
-            
-        <div class="masthead-brand">
+       <div class="col-md-3 col-xs-4">     
+          <div class="masthead-brand">
             <a href="./"><h1>
             <img class="img-circle" src="http://placehold.it/100x100" alt="logo" >  Projekt</h1>
             </a>
-        </div> 
-
-        <ul class="nav masthead-nav">
+          </div>
+       </div>
+       <div class="col-md-2"></div>
+       <div class="col-md-7 col-xs-12">
+          <ul class="nav masthead-nav">
                 <li><a href="#top">Home</a>
             </li>
             <li><a href="#about">About</a>
@@ -60,10 +62,11 @@
                           <li><a href="reg.html">Register</a></li>
                         </ul>
                   </div>
-        </ul>                       
-            
+          </ul>                       
+         </div>   
+      
     </div>
-
+      
     <!-- Full Page Image Header Area -->
     <div id="top" class="header">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -167,93 +170,11 @@
     </div>
     <!-- /Services -->
 
-    <!-- Callout -->
-    <div class="callout">
-        <div class="vert-text">
-            <h1>A Dramatic Text Area</h1>
-        </div>
-    </div>
-    <!-- /Callout -->
-
-    <!-- Portfolio -->
-    <div id="portfolio" class="portfolio">
-        <div class="container"> <!-- container -->
-            <div class="row"> <!-- row -->
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>Our Work</h2>
-                    <hr>
-                </div>
-            </div>  <!-- row -->
-            <div class="row"> <!-- row -->
-                <div class="col-md-4 col-md-offset-2 text-center">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
-                        </a>
-                        <h4>Cityscape</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                        </a>
-                        <h4>Is That On Fire?</h4>
-                    </div>
-                </div>
-            </div> <!-- row -->
-            <div class="row"> <!-- row -->
-                <div class="col-md-4 col-md-offset-2 text-center">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                        </a>
-                        <h4>Stop Sign</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                        </a>
-                        <h4>Narrow Focus</h4>
-                    </div>
-                </div>
-            </div>  <!-- row -->
-        </div>  <!-- container -->
-    </div>
-    <!-- /Portfolio -->
-
-    <!-- Call to Action -->
-    <div class="call-to-action">
-        <div class="container"> <!-- container -->
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-default">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-primary">Look at Me!</a>
-                </div>
-            </div>
-        </div> <!-- container -->
-    </div>
-    <!-- /Call to Action -->
-
-    <!-- Map -->
-    <div id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe>
-    </div>
-    <!-- /Map -->
-
     <!-- Footer -->
     <footer>
         <div class="container"> <!-- container -->
             <div class="row"> <!-- row -->
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-6">
                 <div class="headline"><h2>About Us</h2></div>
                   <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero libero, egestas ut facilisis vel, 
@@ -261,7 +182,7 @@
                   Nullam ultrices eget massa in viverra. Morbi in velit quam. Donec sagittis dignissim placerat.
                   </p>
                 </div>
-                <div class="col-md-4 ">
+                <div class="col-md-4 col-xs-6">
                     <div class="headline"><h2>Feed</h2></div>
                     <ul class="list-inline">
                         <li><a href="#"><i class="fa fa-facebook fa-3x"></a></i>
@@ -275,7 +196,7 @@
                     </ul>
                 </div>
                 
-                <div class="col-md-4 col-xs-4">
+                <div class="col-md-4 col-xs-6">
                     <div id="login" class="headline"><h2>login in</h2></div>
                     <form class="form-signin" role="form">
                         <h2 class="form-signin-heading">Please log in</h2>
@@ -287,7 +208,8 @@
                           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                     </form>
                 </div>
-                
+              
+              <div class="col-md-12 col-xs-12">  
                 <div class="top-scroll">
                       <a href="#top">
                         <span class="glyphicon glyphicon-chevron-up">
@@ -299,7 +221,7 @@
                     
                   <hr>
                     <p>Copyright &copy; Company 2013</p>      
-                    
+              </div>      
             </div> <!-- row -->
         </div>  <!-- container -->
     </footer>

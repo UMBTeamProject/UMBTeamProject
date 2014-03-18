@@ -3463,8 +3463,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav {
   padding-left: 0;
-  margin-top: 50px;
-
   list-style: none;
 }
 .nav > li {
