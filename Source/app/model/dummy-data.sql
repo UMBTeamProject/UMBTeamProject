@@ -33,7 +33,7 @@ INSERT INTO `task` (`id`, `name`, `description`, `project_id`, `owner`, `worker`
 (2,	'Vytvoriť web',	'php kód funkčnosť webu',	1,	1,	6,	'2014-03-17 13:00:00'),
 (3,	'Vytvoriť zadávanie poznámok',	'spraviť funkčné zadávanie úloh do aplikácie.',	2,	2,	7,	'2014-03-17 13:05:00'),
 (4,	'Časovanie',	'Vytvoriť funkčné časovanie aby hodinu vopred upozornilo da danú poznámku.',	2,	2,	8,	'2014-03-17 13:10:00'),
-(5,	'Web',	'Spraviť funkčný web na pridávanie, úpravu a mazanieúloh + dizajn webu.',	4,	4,	10,	'2014-03-17 13:15:00');
+(5,	'Web',	'Spraviť funkčný web na pridávanie, úpravu a mazanie úloh + dizajn webu.',	4,	4,	10,	'2014-03-17 13:15:00');
 
 INSERT INTO `task_status` (`id`, `name`, `task`, `author`, `date`) VALUES
 (1,	'hotové',	5,	4,	'2014-03-17 17:00:00'),
