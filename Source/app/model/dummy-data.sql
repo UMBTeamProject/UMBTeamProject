@@ -14,7 +14,7 @@ INSERT INTO `project` (`id`, `name`, `description`, `owner`, `date`) VALUES
 (1,	'Task manager',	'Projekt by mal byť vytvorený ako webový portál, kde by mohli pracovníci kordinovať prácu na rôznych projektoch.',	1,	'2014-03-17 12:26:00'),
 (2,	'Notes',	'Úlha by mala slúžiť na zaznamenávanie poznámok a usporiadavať ich podľa doležitosti a signalizovať hodinu vopred ako sa poznámka stane aktuálou. ',	2,	'2014-03-17 12:30:00'),
 (3,	'E-shop',	'Úloha je zameraná pre rozšírenie predaja v obchode Alza pomocou e-shopu. ',	3,	'2014-03-17 12:36:00'),
-(4,	'E-learning tests',	'Ide testovanie vedomostí študentov pomocou elektronických testov. Úloha by mala mať vkladanie, upravovanie, mazanie úloh a samotné generovanie etstov pre študentov.',	4,	'2014-03-17 12:37:23'),
+(4,	'E-learning tests',	'Ide testovanie vedomostí študentov pomocou elektronických testov. Úloha by mala mať vkladanie, upravovanie, mazanie úloh a samotné generovanie testov pre študentov.',	4,	'2014-03-17 12:37:23'),
 (5,	'Virtual reality',	'Úloha je zameraná na virtuálnu realitu pri liečbe fóbií ako napríklad simulovanie výšok alebo malých priestorov čo by pomáhalo pri liečbe ľudí trpiacich fóbiou.',	5,	'2014-03-17 12:40:00');
 
 INSERT INTO `project_member` (`user_id`, `project_id`) VALUES
