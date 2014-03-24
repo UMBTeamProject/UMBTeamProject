@@ -128,11 +128,3 @@ class ProjektPresenter extends BasePresenter
 		$this->redirect('detail',$this->id);
 	}
 }
-/*
-            $data = array(
-                "name"        => $values->name,
-                "description" => $values->description,
-                "owner"       => $this->database
-            );
- * 
- */
