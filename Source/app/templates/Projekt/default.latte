@@ -16,9 +16,9 @@ Projekty
         <div class="row">  <!-- row -->
               <div class="col-md-12">
                 <ul id="myTab" class="nav nav-tabs">
-                    <li class="active" n:if="$user->isLoggedIn()"><a href="#moje" data-toggle="tab">Moje</a>
+                    <li {if $user->isLoggedIn()}class="active"{/if} n:if="$user->isLoggedIn()"><a href="#moje" data-toggle="tab">Moje</a>
                     </li>
-                    <li><a href="#all" data-toggle="tab">Všetky</a>
+                    <li {if !$user->isLoggedIn()}class="active"{/if}><a href="#all" data-toggle="tab">Všetky</a>
                     </li>
                     <li n:if="$user->isLoggedIn()"><a href="#novy" data-toggle="tab">Nový</a>
                     </li>
