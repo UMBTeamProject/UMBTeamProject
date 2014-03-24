@@ -23,7 +23,7 @@ INSERT INTO `project_member` (`user_id`, `project_id`) VALUES
 (7,	2),
 (8,	2),
 (9,	3),
-(9,	3),
+(10,	3),
 (10,	4),
 (2,	5),
 (3,	5);
