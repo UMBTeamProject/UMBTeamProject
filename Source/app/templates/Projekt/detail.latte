@@ -46,7 +46,7 @@
                     </li>
                     <li{if !$user->isLoggedIn()} class="active"{/if}><a href="#all" data-toggle="tab">Všetky</a>
                     </li>
-                    <li><a href="#novy" data-toggle="tab">Nová</a>
+                    <li n:if="$user->isLoggedIn()"><a href="#novy" data-toggle="tab">Nová</a>
                     </li>
                 </ul>
 				{var $my = $all = ''}
