@@ -1,11 +1,3 @@
-{**
- * My Application layout template.
- *
- * @param string   $basePath web base path
- * @param string   $robots   tell robots how to index the content of a page (optional)
- * @param array    $flashes  flash messages
- *}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,29 +5,22 @@
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-template-->
-
 	<title>{block title|striptags|upper}projekt{/block}</title>
-
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 	<link rel="stylesheet" href="{$basePath}/css/StyleSheet.css">
-        
         <link href="{$basePath}/css/template/bootstrap.css" rel="stylesheet">
         <link href="{$basePath}/css/template/carousel.css" rel="stylesheet">
         <link href="{$basePath}/css/template/cover.css" rel="stylesheet">
         <link href="{$basePath}/css/template/portfolio.css" rel="stylesheet">
         <link href="{$basePath}/css/template/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        
 	<link rel="shortcut icon" href="{$basePath}/logo.ico">
 	{block head}{/block}
 </head>
-
 <body>
 	<script> document.documentElement.className+=' js' </script>
-        
         <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
            <div class="container"> 
-    
        <div class="col-md-3 col-xs-4">     
           <div class="masthead-brand">
             <a href="{$basePath}"><h1>
@@ -84,7 +69,6 @@
                         </li>
                     </ul>
                 </div>
-                
                 <div class="col-md-4 col-xs-6" n:if="!$user->isLoggedIn()">
                     <div id="login" class="headline"><h2>login in</h2></div>
                         <h2 class="form-signin-heading">Please log in</h2>
@@ -95,7 +79,6 @@
                                   {input send}
                               {/form}
                 </div>
-              
               <div class="col-md-12 col-xs-12">  
                 <div class="top-scroll">
                       <a href="#top">
@@ -105,7 +88,6 @@
                       </a>
                   <br />                        
                 </div>
-                    
                   <hr>
                     <p>Copyright &copy; Company 2014 | <a n:href="About:">Autori</a></p>      
               </div>      

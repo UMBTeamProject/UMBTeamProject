@@ -4,10 +4,8 @@
 {block content}
 <div class="container"> <!-- container -->
          <div class="row"> <!-- row -->
-            
             <div class="col-lg-12">
                 <h1 class="page-header">{$konkretny_projekt->name}
-                   
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="{$basePath}">Home</a>
@@ -20,19 +18,15 @@
                 </ol>
             </div>
         </div> <!-- row -->
-         
         <div class="row">  <!-- row -->
           <div class="col-sm-2">
                 <img class="img-responsive" src="http://placehold.it/200x200">
-              
             </div>
-
             <div class="col-sm-7">
                 <p>
                     {$konkretny_projekt->description}
                 </p>
             </div>
-            
             <div class="col-sm-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -54,9 +48,6 @@
               <div class="prof-header">
                     <h2>Zoznam úloh</h2>                   
               </div>
-           
-              
-             
               <div class="col-md-12">
                 <ul id="myTab" class="nav nav-tabs">
                     <li class="active"><a href="#moje" data-toggle="tab">Moje</a>
@@ -65,21 +56,18 @@
                     </li>
                     <li><a href="#novy" data-toggle="tab">Nová</a>
                     </li>
-                    
                 </ul>
                 <div  class="tab-content">
                     <div class="tab-pane active" id="moje">  
                        <div class="thumbnail">
                           <div class="caption">
                             <p class="proj">Úloha 1337 <small>13.5 2015</small></p>
-                            
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta ac augue bibendum facilisis. Nulla ut vulputate metus. Mauris at lectus vel risus feugiat faucibus eu quis ante. Nulla consequat nibh a quam luctus pretium. Etiam sed vestibulum sem, vel viverra enim. Vestibulum sodales ligula magna,</p>
                               <p class="proj-right"><span class="glyphicon glyphicon-plus"></span> Jozko Mrkvicka </p>
                               <p class="proj-right"><span class="glyphicon glyphicon-bookmark"></span> Admin </p>
                               <p ><a href="uloha_d.html" class="btn btn-primary" role="button">Get In!</a></p> 
                           </div>
                       </div>
-                      
                       <div class="thumbnail">
                         <div class="caption">
                           <p class="proj">Úloha 1  <small>13.5 2015</small></p>
@@ -99,7 +87,6 @@
                               <a href="uloha_d.html" class="btn btn-primary" role="button">Get In!</a> 
                           </div>
                       </div>
-                      
                       <div class="thumbnail">
                         <div class="caption">
                           <p class="proj">Úloha 3  <small>13.5 2015</small></p>
@@ -119,7 +106,6 @@
                                           {input name}
                                       </div>                
                                     </div>
-                    
                                   <label>Popis úlohy</label>
                                    <div class="row margin-bottom-20">
                                       <div class="col-md-11 col-md-offset-0">
@@ -139,10 +125,7 @@
                     </div>
                 </div>
             </div>
-              
              </div>
-              
-             
          </div>  <!-- row -->
     </div>  <!-- container -->
         <script src="{$basePath}/js/template/jquery-1.10.2.js"></script>
