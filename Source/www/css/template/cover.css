@@ -95,7 +95,8 @@ html,
    .masthead-brand a {
    text-decoration: none;
    }
-  
+}
+@media (min-width: 1000px) {
   .masthead-nav {
     float: right;
     margin-top: 50px;
