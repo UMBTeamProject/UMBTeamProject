@@ -36,8 +36,8 @@
 		          <li><a n:href="Registracia:">Registrácia</a></li>
 	              <li><a href="#login">Login</a></li>
 	          {else}                
-	            <li><a n:href="Ulohy:"><span class="glyphicon glyphicon-list"></span> Úlohy</a></li>
-	            <li><a n:href="Profil:"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+	            <li><a n:href="Task:"><span class="glyphicon glyphicon-list"></span> Úlohy</a></li>
+	            <li><a n:href="Profil:detail $user->id"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
 	            <li><a n:href="signOut!"><span class="glyphicon glyphicon-remove"></span> Odhlásenie</a></li>
 	          {/if}
           </ul>                       

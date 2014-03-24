@@ -18,4 +18,8 @@ class ProfilPresenter extends BasePresenter
                 $user = $this->getUser();
                 $this->template->user = $user;
 	}
+
+	public function renderDetail($id)
+	{
+	}
 }

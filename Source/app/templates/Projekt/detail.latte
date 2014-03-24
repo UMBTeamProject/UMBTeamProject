@@ -1,45 +1,37 @@
 {block title}
-{$konkretny_projekt->name}
+{$project->name}
 {/block}
 {block content}
 <div class="container"> <!-- container -->
          <div class="row"> <!-- row -->
             <div class="col-lg-12">
-                <h1 class="page-header">{$konkretny_projekt->name}
-                </h1>
+                <h1 class="page-header">{$project->name}</h1>
                 <ol class="breadcrumb">
-                    <li><a href="{$basePath}">Home</a>
-                    </li>
-                    <li><a href="{$basePath}/projekt">Projekty</a>
-                    </li>
-                        <li class="active">Projekt ID = [ 
-                    {$konkretny_projekt->id}
-                            ]</li>
+                    <li><a n:href="Homepage:">Home</a></li>
+                    <li><a n:href="Projekt:">Projekty</a></li>
+                    <li class="active">{$project->name}</li>
                 </ol>
             </div>
         </div> <!-- row -->
         <div class="row">  <!-- row -->
-          <div class="col-sm-2">
-                <img class="img-responsive" src="http://placehold.it/200x200">
-            </div>
-            <div class="col-sm-7">
-                <p>
-                    {$konkretny_projekt->description}
-                </p>
+            <div class="col-sm-9">
+                <p>{$project->description}</p>
             </div>
             <div class="col-sm-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                  <h2 class="panel-title">Team*</h2>
+                    <h2 class="panel-title">Tím</h2>
                 </div>
                 <div class="panel-body">
-                <p ><span class="glyphicon glyphicon-bookmark"></span> {$admin} </p> 
+                <p>
+                	<span class="glyphicon glyphicon-bookmark"></span>
+                	<a n:href="Profil:detail $project->owner">{$project->ref("users","owner")->name}</a>
+                </p> 
                 <div class="divider"> </div>
-                {foreach $konkretny_projekt->related("project_member") as $member}
-                  <p><span class="glyphicon glyphicon-plus"></span>
-                            {$member->user->name}
+                  <p n:foreach="$project->related('project_member') as $member">
+                  	<span class="glyphicon glyphicon-plus"></span>
+                    <a n:href="Profil:detail $member->user">{$member->user->name}</a>
                   </p>
-                {/foreach}         
                 </div>
             </div>
             </div>
@@ -50,52 +42,56 @@
               </div>
               <div class="col-md-12">
                 <ul id="myTab" class="nav nav-tabs">
-                    <li class="active"><a href="#moje" data-toggle="tab">Moje</a>
+                    <li{if $user->isLoggedIn()} class="active"{/if}><a href="#moje" data-toggle="tab" n:if="$user->isLoggedIn()">Moje</a>
                     </li>
-                    <li><a href="#all" data-toggle="tab">Všetky</a>
+                    <li{if !$user->isLoggedIn()} class="active"{/if}><a href="#all" data-toggle="tab">Všetky</a>
                     </li>
                     <li><a href="#novy" data-toggle="tab">Nová</a>
                     </li>
                 </ul>
+				{var $my = $all = ''}
+				{foreach $project->related('task') as $task}
+				{capture $tmp}
+				<div class="thumbnail">
+					<div class="caption">
+						<p class="proj">
+							<a n:href="Task:detail $task->id">
+								{$task->name}
+							</a>
+							<small>{$task->date|date:"d.m.Y H:i:s"}</small>
+						</p>
+						<p>{$task->description}</p>
+						<p class="proj-right">
+							<span class="glyphicon glyphicon-plus"></span>
+							<a n:href="Profil:detail $task->worker">
+								{$task->ref("users","worker")->name}
+							</a>
+						</p>
+						<p class="proj-right">
+							<span class="glyphicon glyphicon-bookmark"></span>
+							<a n:href="Profil:detail $task->owner">
+								{$task->ref("users","owner")->name}
+							</a>
+						</p>
+					</div>
+				</div>
+				{/capture}
+				{if $task->worker===$user->id}
+					{var $my.=$tmp}
+				{/if}
+				{var $all.=$tmp}
+				{/foreach}
                 <div  class="tab-content">
-                    <div class="tab-pane active" id="moje">  
-                       <div class="thumbnail">
-                          <div class="caption">
-                            <p class="proj">Úloha 1337 <small>13.5 2015</small></p>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta ac augue bibendum facilisis. Nulla ut vulputate metus. Mauris at lectus vel risus feugiat faucibus eu quis ante. Nulla consequat nibh a quam luctus pretium. Etiam sed vestibulum sem, vel viverra enim. Vestibulum sodales ligula magna,</p>
-                              <p class="proj-right"><span class="glyphicon glyphicon-plus"></span> Jozko Mrkvicka </p>
-                              <p class="proj-right"><span class="glyphicon glyphicon-bookmark"></span> Admin </p>
-                              <p ><a href="uloha_d.html" class="btn btn-primary" role="button">Get In!</a></p> 
-                          </div>
-                      </div>
-                      <div class="thumbnail">
-                        <div class="caption">
-                          <p class="proj">Úloha 1  <small>13.5 2015</small></p>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta ac augue bibendum facilisis. Nulla ut vulputate metus. Mauris at lectus vel risus feugiat faucibus eu quis ante. Nulla consequat nibh a quam luctus pretium. Etiam sed vestibulum sem, vel viverra enim. Vestibulum sodales ligula magna,</p>
-                          <p class="proj-right"><span class="glyphicon glyphicon-plus"></span> Jozko Mrkvicka </p>
-                              <p class="proj-right"><span class="glyphicon glyphicon-bookmark"></span> Admin </p>
-                          <a href="uloha_d.html" class="btn btn-primary" role="button">Get In!</a> 
-                      </div>
-                      </div>
+                    <div class="tab-pane{if $user->isLoggedIn()} active{/if}" id="moje" n:if="$user->isLoggedIn()">
+                    	{if $my}
+							{!$my}
+						{else}
+							Nemáte pridelené žiadne úlohy!
+						{/if}
                     </div>
-                    <div class="tab-pane" id="all">
-                        <div class="thumbnail">
-                          <div class="caption">
-                            <p class="proj">Úloha 2 <small>13.5 2015</small></p>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta ac augue bibendum facilisis. Nulla ut vulputate metus. Mauris at lectus vel risus feugiat faucibus eu quis ante. Nulla consequat nibh a quam luctus pretium. Etiam sed vestibulum sem, vel viverra enim. Vestibulum sodales ligula magna,</p>
-                              <p class="text-right"><span class="glyphicon glyphicon-plus"></span> Jozko Mrkvicka </p>
-                              <a href="uloha_d.html" class="btn btn-primary" role="button">Get In!</a> 
-                          </div>
-                      </div>
-                      <div class="thumbnail">
-                        <div class="caption">
-                          <p class="proj">Úloha 3  <small>13.5 2015</small></p>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta ac augue bibendum facilisis. Nulla ut vulputate metus. Mauris at lectus vel risus feugiat faucibus eu quis ante. Nulla consequat nibh a quam luctus pretium. Etiam sed vestibulum sem, vel viverra enim. Vestibulum sodales ligula magna,</p>
-                          <p class="text-right"><span class="glyphicon glyphicon-plus"></span> Jozko Mrkvicka </p>
-                          <a href="uloha_d.html" class="btn btn-primary" role="button">Get In!</a> 
-                      </div>
-                      </div>
-                    </div>
+					<div class="tab-pane{if !$user->isLoggedIn()} active{/if}" id="all">
+						{!$all}
+					</div>
                     <div class="tab-pane" id="novy">
                            <div class="post-comment">
             	                 <h3>Vytvorenie úlohy</h3>

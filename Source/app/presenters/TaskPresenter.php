@@ -11,9 +11,9 @@ use Nette,
  * Ulohy presenter.
  */
 
-class UlohyPresenter extends BasePresenter
+class TaskPresenter extends BasePresenter
 {
-	public function renderDefault()
+	public function renderDetail($id)
 	{
 	}
 }
