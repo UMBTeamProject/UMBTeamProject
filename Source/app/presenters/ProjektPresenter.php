@@ -13,6 +13,7 @@ use Nette,
 
 class ProjektPresenter extends BasePresenter
 {
+	/** @persistent */
 	public $id;
 
         public function handleGetIn($projectID)
