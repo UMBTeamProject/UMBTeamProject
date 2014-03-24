@@ -1,0 +1,85 @@
+{block title}
+Profil
+{/block}
+{block content}
+<div class="container"> <!-- container -->
+         <div class="row"> <!-- row -->
+            <div class="col-lg-12">
+                <h2 class="page-header">{$profil->name}
+                 </h2>
+                 <ol class="breadcrumb">
+                    <li><a n:href="Homepage:">Domov</a>
+                    </li>
+                    <li class="active">Profil</li>
+                </ol>
+             </div>
+            <div class="col-sm-6">
+                <p>{$profil->about_me}</p>
+            </div>
+            <div class="col-sm-2">
+             </div>
+            <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h2 class="panel-title">Skúsenosti</h2>
+                </div>
+                <div class="panel-body">
+                  <p>{$profil->skills}</p>
+                </div>
+            </div>
+            </div>
+        </div> <!-- row --> 
+          <div class="row"> <!-- row -->
+                <div class="prof-header">
+                    <h2>Referencie</h2>                   
+                </div>
+                {$profil->references}
+          </div>  <!-- row -->
+          <div class="row"> <!-- row -->
+                <div class="prof-header">
+                    <h2>Projekty</h2>                   
+                </div>
+              <div class="col-md-12">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#moje" data-toggle="tab">Vlastné</a>
+                    </li>
+                    <li><a href="#all" data-toggle="tab">Prispievateľ</a>
+                    </li>
+                </ul>
+                <div  class="tab-content">
+                    <div class="tab-pane active" id="moje">  
+						<div class="thumbnail" n:foreach="$ownedProjects as $project">
+							<div class="caption">
+								<p class="proj"><a n:href="detail $project->id">{$project->name}</a> <small align=right>{$project->date|date:"d.m.Y"}</small></p>
+								<p>{$project->description}</p>
+								{if $user->isLoggedIn()}
+									{if $project->related('project_member')->where("user_id", $user->id)->where("project_id", $project->id)->count('*')==0 AND $project->owner!=$user->id} 
+									<a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
+									{/if}
+								{/if} 
+							</div>
+						</div>
+                    </div>
+                    <div class="tab-pane" id="all">
+						<div class="thumbnail" n:foreach="$memberProjects as $project">
+							<div class="caption">
+								<p class="proj"><a n:href="detail $project->id">{$project->name}</a> <small align=right>{$project->date|date:"d.m.Y"}</small></p>
+								<p>{$project->description}</p>
+								{if $user->isLoggedIn()}
+									{if $project->related('project_member')->where("user_id", $user->id)->where("project_id", $project->id)->count('*')==0 AND $project->owner!=$user->id} 
+									<a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
+									{/if}
+								{/if} 
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>              
+             </div>    
+          </div>  <!-- row -->
+    </div> <!-- container -->
+
+    <script src="{$basePath}/js/template/jquery-1.10.2.js"></script>
+    <script src="{$basePath}/js/template/bootstrap.js"></script>
+    <!--<script src="js/modern-business.js"></script> //nenasiel som subor moder-business.js v sablone -->
+{/block}
