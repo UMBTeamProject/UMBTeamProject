@@ -50,11 +50,11 @@ Profil
                     <div class="tab-pane active" id="moje">  
 						<div class="thumbnail" n:foreach="$ownedProjects as $project">
 							<div class="caption">
-								<p class="proj"><a n:href="detail $project->id">{$project->name}</a> <small align=right>{$project->date|date:"d.m.Y"}</small></p>
+								<p class="proj"><a n:href="Projekt:detail $project->id">{$project->name}</a> <small align=right>{$project->date|date:"d.m.Y"}</small></p>
 								<p>{$project->description}</p>
 								{if $user->isLoggedIn()}
 									{if $project->related('project_member')->where("user_id", $user->id)->where("project_id", $project->id)->count('*')==0 AND $project->owner!=$user->id} 
-									<a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Pripoj sa!</a>
+									<a n:href="Projeck:GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Pripoj sa!</a>
 									{/if}
 								{/if} 
 							</div>
@@ -63,11 +63,11 @@ Profil
                     <div class="tab-pane" id="all">
 						<div class="thumbnail" n:foreach="$memberProjects as $project">
 							<div class="caption">
-								<p class="proj"><a n:href="detail $project->id">{$project->name}</a> <small align=right>{$project->date|date:"d.m.Y"}</small></p>
+								<p class="proj"><a n:href="Projekt:detail $project->id">{$project->name}</a> <small align=right>{$project->date|date:"d.m.Y"}</small></p>
 								<p>{$project->description}</p>
 								{if $user->isLoggedIn()}
 									{if $project->related('project_member')->where("user_id", $user->id)->where("project_id", $project->id)->count('*')==0 AND $project->owner!=$user->id} 
-									<a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Pripoj sa!</a>
+									<a n:href="Projeck:GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Pripoj sa!</a>
 									{/if}
 								{/if} 
 							</div>
