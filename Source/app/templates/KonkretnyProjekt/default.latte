@@ -3,11 +3,7 @@
          <div class="row"> <!-- row -->
             
             <div class="col-lg-12">
-                <h1 class="page-header">Projekt <small>c.
-                    {foreach $konkretny_projekt as $kp}
-                            {$kp->id}
-                    {/foreach}
-                    </small>
+                <h1 class="page-header">{$konkretny_projekt->name}
                    
                 </h1>
                 <ol class="breadcrumb">
@@ -16,9 +12,7 @@
                     <li><a href="{$basePath}/projekt">Projekty</a>
                     </li>
                         <li class="active">Projekt ID = [ 
-                    {foreach $konkretny_projekt as $kp}
-                            {$kp->id}
-                    {/foreach}
+                    {$konkretny_projekt->id}
                             ]</li>
                 </ol>
             </div>
@@ -31,13 +25,9 @@
             </div>
 
             <div class="col-sm-7">
-                
-                <p>Service two description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst.
-                Service two description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst.
+                <p>
+                    {$konkretny_projekt->description}
                 </p>
-                
             </div>
             
             <div class="col-sm-3">
@@ -48,9 +38,9 @@
                 <div class="panel-body">
                 <p ><span class="glyphicon glyphicon-bookmark"></span> {$admin} </p> 
                 <div class="divider"> </div>
-                {foreach $members as $member}
-                  <p class="proj-right"><span class="glyphicon glyphicon-plus"></span>
-                            {$member->user_id}
+                {foreach $konkretny_projekt->related("project_member") as $member}
+                  <p><span class="glyphicon glyphicon-plus"></span>
+                            {$member->user->name}
                   </p>
                 {/foreach}         
                 </div>
@@ -119,35 +109,29 @@
                     <div class="tab-pane" id="novy">
                            <div class="post-comment">
             	                 <h3>Vytvorenie úlohy</h3>
-                                <form>
+                                {form listTasks}
                                    <label>Názov úlohy</label>
                                     <div class="row margin-bottom-20">
                                       <div class="col-md-7 col-md-offset-0">
-                                          <input type="text" class="form-control">
+                                          {input name}
                                       </div>                
                                     </div>
                     
                                   <label>Popis úlohy</label>
                                    <div class="row margin-bottom-20">
                                       <div class="col-md-11 col-md-offset-0">
-                                          <textarea class="form-control" rows="8"></textarea>
+                                          {input description}
                                       </div>                
                                    </div>
                                   <label>Výber: </label>
                                    <div class="row margin-bottom-20"> 
                                       <div class="col-md-3 col-md-offset-0">
-                                        <select class="form-control">
-                                          <option>1</option>
-                                          <option>2</option>
-                                          <option>3</option>
-                                            <option>4</option>
-                                             <option>5</option>
-                                        </select>
+                                        {input worker}
                                     </div>
                                     </div>
                                     <br />
-                                  <p><button class="btn-u" type="submit">Pridať úlohu</button></p>
-                                </form>
+                                  <p>{input send}</p>
+                                {/form}
                           </div>
                     </div>
                 </div>
