@@ -32,6 +32,14 @@
                   	<span class="glyphicon glyphicon-plus"></span>
                     <a n:href="Profil:detail $member->user">{$member->user->name}</a>
                   </p>
+                  <p n:if="$user->isLoggedIn()">
+                  {if $user->id===$project->owner}
+                  {form inviteUser}
+                  {input user_id}
+                  {input send}
+                  {/form}
+                  {/if}
+                  </p>
                 </div>
             </div>
             </div>

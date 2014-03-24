@@ -118,4 +118,51 @@ class ProjektPresenter extends BasePresenter
 		$this->flashMessage("Úloha pridaná!");
 		$this->redirect('detail',$this->id);
 	}
+
+	public function createComponentInviteUser()
+	{
+		$users = $this->database
+			->table("users")
+			->where("id NOT IN", 
+				array_merge(
+					array_keys(
+						$this->database->table("project_member")
+							->where("project_id", $this->id)
+							->fetchPairs("user_id", "user_id")
+					),
+					array(
+						$this->database->table("project")
+							->where("id",$this->id)
+							->fetch()
+							->owner,
+					)
+				)
+			)->fetchPairs("id", "name");
+		$form = new Form;
+		$form->addSelect("user_id",NULL,$users);
+		$form->addSubmit("send","Pridať člena");
+		$form->onSuccess[] = $this->inviteUser;
+		return $form;
+	}
+
+	public function inviteUser($form)
+	{
+		if ($this->user->isLoggedIn()) {
+			$owner = $this->database->table("project")
+						->where("id",$this->id)
+						->fetch()
+						->owner;
+			if ($this->user->id==$owner) {
+				$values = $form->getValues();
+				$values['project_id'] = $this->id;
+				$this->database->table("project_member")->insert($values); 
+				$this->flashMessage("Nový člen bol pridaný!", "info");
+			} else {
+				$this->flashMessage("Pridávať nových členov môže iba vlastník projektu!", "warning");	
+			}
+		} else {
+			$this->flashMessage("Pre pridanie nového člena musíte byť prihlásený!", "warning");
+		}
+		$this->redirect('this');
+	}
 }
