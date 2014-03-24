@@ -28,7 +28,7 @@ Projekty
                        {foreach $moje_projekty as $project}
                        <div class="thumbnail">
                           <div class="caption">
-                            <p class="proj"><a n:href="KonkretnyProjekt: $project->id">{$project->name}</a>&nbsp;&nbsp;&nbsp;<small align=right>{$project->date}</small></p>
+                            <p class="proj"><a n:href="KonkretnyProjekt: $project->id">{$project->name}</a>&nbsp;&nbsp;&nbsp;<small align=right>{$project->date|date:"d.m.Y"}</small></p>
                               <p>{$project->description}</p>
                               {if $user->isLoggedIn()}
                                     {if $project->related('project_member')->where("user_id", $user->id)->count('*') AND $project->owner===$user->id} 
@@ -43,7 +43,7 @@ Projekty
                        {foreach $vsetky_projekty as $project}
                        <div class="thumbnail">
                           <div class="caption">
-                            <p class="proj"><a n:href="KonkretnyProjekt: $project->id">{$project->name}</a>&nbsp;&nbsp;&nbsp;<small align=right>{$project->date}</small></p>
+                            <p class="proj"><a n:href="KonkretnyProjekt: $project->id">{$project->name}</a>&nbsp;&nbsp;&nbsp;<small align=right>{$project->date|date:"d.m.Y"}</small></p>
                               <p>{$project->description}</p>
                               {if $user->isLoggedIn()}
                                     {if $project->related('project_member')->where("user_id", $user->id)->where("project_id", $project->id)->count('*')==0 AND $project->owner!=$user->id} 
