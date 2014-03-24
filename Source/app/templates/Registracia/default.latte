@@ -5,13 +5,13 @@ Registrácia
  <div class="container">       
     <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Registracia
+                <h1 class="page-header">Registrácia
                    
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="{$basePath}">Home</a>
+                    <li><a n:href="Homepage:">Domov</a>
                     </li>
-                    <li class="active">Registracia</li>
+                    <li class="active">Registrácia</li>
                 </ol>
             </div>
         </div>    
@@ -21,9 +21,9 @@ Registrácia
                 <div class="reg-header">
                     <h2>Zaregistruj sa</h2>
                     <p>Už si zaregistrovaný? 
-                        <a href="{$basePath}/#login" class="color-green">
-                            Prihlásiť
-                        </a> sa na tvoj účet.</p>                    
+                        <a href="#login" class="color-green">
+                            Prihlás sa
+                        </a> na svoj účet.</p>                    
                 </div>
                 <label>Email <span class="color-red">*</span></label>
                 {input mail}
@@ -47,11 +47,7 @@ Registrácia
                 {input references}
                 <hr>
                 <div class="row">
-                    <div class="col-lg-6">
-                        <label class="checkbox">
-                            <input type="checkbox"> 
-                            I read <a href="page_terms.html" class="color-green">Terms and Conditions</a>
-                        </label>                        
+                    <div class="col-lg-6">                     
                     </div>
                     <div class="col-lg-6 text-right">
                         {input submit}

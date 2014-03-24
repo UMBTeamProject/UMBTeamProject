@@ -32,7 +32,7 @@ Projekty
                               <p>{$project->description}</p>
                               {if $user->isLoggedIn()}
                                     {if $project->related('project_member')->where("user_id", $user->id)->count('*') AND $project->owner===$user->id} 
-                                             <a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
+                                             <a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Pripoj sa!</a>
                                     {/if}
                               {/if} 
                           </div>
@@ -47,7 +47,7 @@ Projekty
                               <p>{$project->description}</p>
                               {if $user->isLoggedIn()}
                                     {if $project->related('project_member')->where("user_id", $user->id)->where("project_id", $project->id)->count('*')==0 AND $project->owner!=$user->id} 
-                                             <a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Get In!</a>
+                                             <a n:href="GetIn! $project->id" onclick="return confirm('Naozaj sa chceš pridať?');" class="btn btn-primary" role="button">Pripoj sa!</a>
                                     {/if}
                               {/if} 
                           </div>

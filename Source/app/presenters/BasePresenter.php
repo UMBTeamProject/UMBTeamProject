@@ -49,7 +49,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 		$form->addCheckbox('remember', ' Zostaň prihlásený.');
 
-		$form->addSubmit('send', 'Login')
+		$form->addSubmit('send', 'Prihlásiť sa')
                      ->getControlPrototype()->setClass("btn btn-lg btn-primary btn-block");
 
 		$form->onSuccess[] = $this->signInFormSucceeded;

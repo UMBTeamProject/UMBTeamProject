@@ -32,7 +32,7 @@
             <li><a n:href="Projekt:"><span class="glyphicon glyphicon-list"></span> Projekty</a></li>
 	          {if !$user->isLoggedIn()}                              
 		          <li><a n:href="Registracia:">Registrácia</a></li>
-	              <li><a href="#login">Login</a></li>
+	              <li><a href="#login">Prihlásenie</a></li>
 	          {else}                
 	            <li><a n:href="Profil:detail $user->id"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
 	            <li><a n:href="signOut!"><span class="glyphicon glyphicon-remove"></span> Odhlásenie</a></li>
@@ -49,7 +49,7 @@
         <div class="container"> <!-- container -->
             <div class="row"> <!-- row -->
                 <div class="col-md-4 col-xs-6" n:if="!$user->isLoggedIn()">
-                <div class="headline"><h2>About Us</h2></div>
+                <div class="headline"><h2>O nás</h2></div>
                   <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero libero, egestas ut facilisis vel, 
                   sodales sit amet odio. Morbi vel vehicula massa. Aenean viverra feugiat metus, ac convallis leo pharetra non. 
@@ -57,7 +57,7 @@
                   </p>
                 </div>
                 <div class="col-md-4 col-xs-6" n:if="!$user->isLoggedIn()">
-                    <div class="headline"><h2>Feed</h2></div>
+                    <div class="headline"><h2>Sociálne siete</h2></div>
                     <ul class="list-inline">
                         <li><a href="#"><i class="fa fa-facebook fa-3x"></i></a>
                         </li>
@@ -70,8 +70,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 col-xs-6" n:if="!$user->isLoggedIn()">
-                    <div id="login" class="headline"><h2>login in</h2></div>
-                        <h2 class="form-signin-heading">Please log in</h2>
+                    <div id="login" class="headline"><h2>Prihlásenie</h2></div>
                               {form signInForm}
                                   {input email}
                                   {input password}
@@ -83,7 +82,7 @@
                 <div class="top-scroll">
                       <a href="#top">
                         <span class="glyphicon glyphicon-chevron-up">
-                          <strong>Top</strong>
+                          <strong>Hore</strong>
                         </span>
                       </a>
                   <br />                        
