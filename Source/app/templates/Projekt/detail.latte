@@ -90,7 +90,11 @@
 						{/if}
                     </div>
 					<div class="tab-pane{if !$user->isLoggedIn()} active{/if}" id="all">
-						{!$all}
+						{if $all}
+							{!$all}
+						{else}
+							V projekte zatiaľ nie sú vytvorené žiadne úlohy!
+						{/if}
 					</div>
                     <div class="tab-pane" id="novy">
                            <div class="post-comment">
