@@ -5,44 +5,26 @@ TeamUnit.eu
     <!-- Full Page Image Header Area -->
     <div class="header">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        	{var $slides = array(
+        		"banner1_francek.jpg",
+        		"banner1_urbancok.png",
+        		"banner2_urbancok.png",
+        		"banner3_urbancok.png",
+        		)}
             <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+            	{var $i = 0}
+              <ol class="carousel-indicators" n:inner-foreach="$slides as $slide">
+                <li data-target="#carousel-example-generic" data-slide-to="{$i++}"{if $iterator->isFirst()} class="active"{/if}></li>
               </ol>
             <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                   <div class="item">
-                      <img src="http://placehold.it/1450x600" alt="welcome"> 
+              <div class="carousel-inner" n:inner-foreach="$slides as $slide">
+                   <div class="item{if $iterator->isFirst()} active{/if}">
+                      <img src="{$basePath}/images/promo/{$slide}" alt="welcome"> 
                         <div class="container">
                           <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-success" href="#" role="button">Learn more</a></p>
                           </div>
-                        </div>        
-              </div>
-               <div class="item active">
-                 <img src="http://placehold.it/1450x600" alt="welcome">
-                    <div class="container">
-                          <div class="carousel-caption">
-                              <h1>Another example headline.</h1>
-                              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                              <p><a class="btn btn-lg btn-success" href="#" role="button">Learn more</a></p>
-                          </div>
-                    </div>
-              </div>
-             <div class="item">
-                <img src="http://placehold.it/1450x600" alt="welcome">
-                <div class="container">
-                          <div class="carousel-caption">
-                              <h1>Another example headline.</h1>
-                              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                              <p><a class="btn btn-lg btn-success" href="#" role="button">Learn more</a></p>
-                          </div>
-                    </div>
-             </div>
+                        </div>
+	              </div>
           </div>
           </div>
     </div>
