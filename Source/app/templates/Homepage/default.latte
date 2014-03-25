@@ -1,34 +1,31 @@
 {block title}
 TeamUnit.eu
 {/block}
-{block content}  
-    <!-- Full Page Image Header Area -->
-    <div class="header">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        	{var $slides = array(
-        		"banner1_francek.jpg",
-        		"banner1_urbancok.png",
-        		"banner2_urbancok.png",
-        		"banner3_urbancok.png",
-        		)}
-            <!-- Indicators -->
-            	{var $i = 0}
-              <ol class="carousel-indicators" n:inner-foreach="$slides as $slide">
-                <li data-target="#carousel-example-generic" data-slide-to="{$i++}"{if $iterator->isFirst()} class="active"{/if}></li>
-              </ol>
-            <!-- Wrapper for slides -->
-              <div class="carousel-inner" n:inner-foreach="$slides as $slide">
-                   <div class="item{if $iterator->isFirst()} active{/if}">
-                      <img src="{$basePath}/images/promo/{$slide}" alt="welcome"> 
-                        <div class="container">
-                          <div class="carousel-caption">
-                          </div>
-                        </div>
-	              </div>
-          </div>
-          </div>
-    </div>
-    <!-- /Full Page Image Header Area -->
+{block content}
+{var $slides = array(
+	"banner1_francek.jpg",
+	"banner1_urbancok.png",
+	"banner2_urbancok.png",
+	"banner3_urbancok.png",
+	)}
+<!-- Full Page Image Header Area -->
+<div id="top" class="header">
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		{var $i = 0}
+		<ol class="carousel-indicators" n:inner-foreach="$slides as $slide">
+			<li data-target="#carousel-example-generic" data-slide-to="{$i++}"{if $iterator->isFirst()} class="active"{/if}></li>
+		</ol>
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" n:inner-foreach="$slides as $slide">
+			<div class="item{if $iterator->isFirst()} active{/if}">
+				<img src="{$basePath}/images/promo/{$slide}" alt="welcome"> 
+				<div class="container"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Full Page Image Header Area -->
     <!-- Services -->
     <div id="services" class="services">
         <div class="container"> <!-- container -->

@@ -19,28 +19,32 @@
 </head>
 <body>
 	<script> document.documentElement.className+=' js' </script>
-           <div class="container" id="top"> 
-       <div class="col-md-5 col-lg-4 col-xs-12">
-          <div class="masthead-brand">
-            <a n:href="Homepage:"><h1>
-            <img src="{$basePath}/images/small_logo.png" alt="logo" > TeamUnit.eu</h1>
-            </a>
-          </div>
-       </div>
-       <div class="col-md-1 col-lg-2"></div>
-       <div class="col-md-6 col-lg-8 col-xs-12">
-          <ul class="nav masthead-nav">
-            <li><a n:href="Projekt:"><span class="glyphicon glyphicon-list"></span> Projekty</a></li>
-	          {if !$user->isLoggedIn()}                              
-		          <li><a n:href="Registracia:">Registrácia</a></li>
-	              <li><a href="#login">Prihlásenie</a></li>
-	          {else}                
-	            <li><a n:href="Profil:detail $user->id"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
-	            <li><a n:href="signOut!"><span class="glyphicon glyphicon-remove"></span> Odhlásenie</a></li>
-	          {/if}
-          </ul>                       
-         </div>
-    </div>
+	<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle ui-btn ui-shadow ui-corner-all" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="header_img"></div>
+				<a class="navbar-brand ui-link" n:href="Homepage:">
+					<img src="{$basePath}/images/small_logo.png" alt="logo" > TeamUnit.eu
+				</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul id="nav" class="nav navbar-nav"></ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a n:href="Projekt:"><span class="glyphicon glyphicon-list"></span> Projekty</a></li>
+					<li n:if="!$user->isLoggedIn()"><a n:href="Registracia:"><span class="glyphicon glyphicon-plus"></span> Registrácia</a></li>
+					<li n:if="!$user->isLoggedIn()"><a href="#login"><span class="glyphicon glyphicon-user"></span>  Prihlásenie</a></li>
+					<li n:if="$user->isLoggedIn()"><a n:href="Profil:detail $user->id"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+					<li n:if="$user->isLoggedIn()"><a n:href="signOut!"><span class="glyphicon glyphicon-remove"></span> Odhlásenie</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
 	<div class="container"> <!-- container -->
 		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 	</div> <!-- container -->

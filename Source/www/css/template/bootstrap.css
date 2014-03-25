@@ -3655,7 +3655,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -3752,7 +3752,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 20px;
-  padding: 15px 15px;
+  padding: 5px 5px;
   font-size: 18px;
   line-height: 20px;
 }
@@ -4436,7 +4436,6 @@ a.thumbnail.active {
 .thumbnail .caption {
   padding: 9px;
   color: #333;
-  min-height: 120px;
 }
 .alert {
   padding: 15px;
@@ -5926,4 +5925,11 @@ p.proj-right {
   border: 0;
   border-top: 1px solid #eee;
 
+}
+
+.header_img {
+  float: left;
+  height: auto;
+  padding-right: 10px;
+  padding-top: 5px;
 }
